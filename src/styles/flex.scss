@@ -1,0 +1,15 @@
+/* 公共 flex 布局 css */
+
+
+
+.FlexRow{
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+}
+
+.FlexColumn{
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+}
