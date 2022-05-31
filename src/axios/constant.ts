@@ -8,13 +8,34 @@ const METHOD: Record<string, string> = {
 
 const baseURL = ''
 
+const HEADERS: Record<string,any> = {
+  baseURL,
+  timeout: 5000,
+  responseType: 'json',
+}
 
+// 默认配置
 const DEFAULT_HEADERS: Record<string, any> = {
-
+  ...HEADERS,
+  headers:{
+    'Content-Type': 'application/x-www-form-urlencoded'
+  },
 }
 
+// JSON 格式
 const JSON_HEADERS: Record<string, any> = {
-
+  ...HEADERS,
+  headers:{
+    'Content-Type': 'application/json'
+  },
 }
 
-export { METHOD, baseURL, DEFAULT_HEADERS, JSON_HEADERS };
+// 二进制
+const MUL_HEADERS: Record<string, any> = {
+  ...HEADERS,
+  headers:{
+    'Content-Type': 'multipart/form-data'
+  },
+}
+
+export { METHOD, baseURL, DEFAULT_HEADERS, JSON_HEADERS, MUL_HEADERS };
