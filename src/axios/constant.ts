@@ -6,6 +6,7 @@ const METHOD: Record<string, string> = {
   PATCH: "patch",
 };
 
+type  HEADERS_TYPE = undefined | 'urlencoded' | 'json' | 'form-data' | null | ''
 const baseURL = ''
 
 const HEADERS: Record<string,any> = {
@@ -38,4 +39,15 @@ const MUL_HEADERS: Record<string, any> = {
   },
 }
 
-export { METHOD, baseURL, DEFAULT_HEADERS, JSON_HEADERS, MUL_HEADERS };
+const getHeaders = (type: HEADERS_TYPE) => {
+  switch (type) {
+    case 'json':
+      return JSON_HEADERS
+    case 'form-data':
+      return MUL_HEADERS
+    default:
+      return DEFAULT_HEADERS
+  }
+}
+
+export { METHOD, baseURL, getHeaders };
